@@ -1,0 +1,63 @@
+package prac_1;
+
+import org.openqa.selenium.By;
+
+//File: SeleniumTest.java
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumTest {
+
+ // Path to ChromeDriver and GeckoDriver executables
+ static String chromeDriverPath = "C:/Users/Huda/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe";
+ // static String firefoxDriverPath = "C:/drivers/geckodriver.exe";
+
+ public static void main(String[] args) {
+
+     // Set system properties for Chrome and Firefox drivers
+     System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+  //    System.setProperty("webdriver.gecko.driver", firefoxDriverPath);
+
+     // Run tests on Chrome
+     System.out.println("Running test on Chrome...");
+     WebDriver chromeDriver = setupChromeDriver();
+     runTest(chromeDriver);
+
+     // Run tests on Firefox
+//     System.out.println("Running test on Firefox...");
+//     WebDriver firefoxDriver = setupFirefoxDriver();
+//     runTest(firefoxDriver);
+     
+ }
+
+ // Setup Chrome WebDriver
+ public static WebDriver setupChromeDriver() {
+     return new ChromeDriver();
+ }
+
+ // Setup Firefox WebDriver
+// public static WebDriver setupFirefoxDriver() {
+//     return new FirefoxDriver();
+// }
+
+ // Test function to open URL and print page title
+ public static void runTest(WebDriver driver) {
+     try {
+         // Open Guru99 Selenium Tutorial page
+         driver.get("https://www.guru99.com/selenium-tutorial.html");
+         // Print page title
+         System.out.println("Page Title: " + driver.getTitle());
+
+         // Locate an element on the page (e.g., main tutorial heading)
+         String headerText = driver.findElement(By.xpath("//h1")).getText();
+         System.out.println("Main Heading: " + headerText);
+
+     } catch (Exception e) {
+         e.printStackTrace();
+     } finally {
+         // Close the browser
+         driver.quit();
+     }
+ }
+}
