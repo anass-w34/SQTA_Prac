@@ -6,7 +6,26 @@ download this
 https://www.selenium.dev/downloads/
 
 
-
 to increase duration add Thread.sleep(5000); after every system.out.print
+
+**************************************************to solve version error*********************************************************
+
+
+IDE Configuration: Your IDE might still be configured to use an older Java version, such as Java 8, despite having Java 21 installed. Please verify the following settings in your IDE:
+
+Eclipse: Go to Window > Preferences > Java > Installed JREs and make sure Java 21 is selected as the default.
+IntelliJ IDEA: Go to File > Project Structure > Project, and ensure both the Project SDK and Project language level are set to Java 21.
+
+Add Java 21 JDK:
+
+In the Installed JREs window (as shown in the screenshot), click on the Add... button on the right.
+Select Standard VM and click Next.
+In the JRE home field, navigate to the folder where Java 21 JDK is installed, which in your case is C:\Program Files\Java\jdk-21.
+
+Right-click on your project in Eclipse.
+Go to Properties > Java Build Path > Libraries.
+Ensure that the JRE System Library points to Java 21. If it doesn’t:
+Select the existing JRE System Library and click Remove.
+Click Add Library > JRE System Library > Alternate JRE > Select Java 21 > Finish
 
 
