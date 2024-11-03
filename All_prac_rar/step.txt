@@ -1,0 +1,12 @@
+dowload chorme drive
+https://googlechromelabs.github.io/chrome-for-testing/#stable
+https://storage.googleapis.com/chrome-for-testing-public/130.0.6723.91/win64/chromedriver-win64.zip
+
+download this
+https://www.selenium.dev/downloads/
+
+
+
+to increase duration add Thread.sleep(5000); after every system.out.print
+
+
