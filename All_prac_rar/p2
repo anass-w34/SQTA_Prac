@@ -1,0 +1,44 @@
+package p2;
+
+//File: HandleFramesExample.java
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+public class HandleFramesExample {
+
+ // Paths to ChromeDriver executable
+ static String chromeDriverPath = "C:/Users/Huda/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe";
+
+ public static void main(String[] args) {
+
+     // Set system property for Chrome driver
+     System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+
+     // Initialize ChromeDriver
+     WebDriver driver = new ChromeDriver();
+     
+     // Step 1: Navigate to the page with iframes
+     driver.get("https://demo.guru99.com/test/guru99home/");
+     driver.manage().window().maximize();
+
+     // Switch to frame by ID or name
+     driver.switchTo().frame("a077aa5e"); // ID of the iframe on the demo page
+
+     // Locate an element within the iframe and click it
+     WebElement imgElement = driver.findElement(By.xpath("html/body/a/img"));
+     System.out.println("Element inside frame found: " + imgElement.isDisplayed());
+     imgElement.click();
+
+     // Switch back to main content
+     driver.switchTo().defaultContent();
+
+     // Print confirmation after switching back to main content
+     System.out.println("Switched back to main content.");
+
+     // Cleanup and close browser
+     driver.quit();
+ }
+}
